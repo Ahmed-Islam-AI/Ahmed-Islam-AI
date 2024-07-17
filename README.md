@@ -1,5 +1,5 @@
 # **Greetings, fellow developers! 👋**
-Nice to e-meet you! I'm **Ahmed Islam**, an enthusiastic undergraduate CS student hailing from University Of Haripur. My passion for technology has led me to explore a wide range of technical domains, and I love diving into projects that challenge my skills and creativity.
+Nice to meet you! I'm **Ahmed Islam**, an enthusiastic undergraduate CS student from the University Of Haripur. My passion for technology has led me to explore a wide range of technical domains, and I love diving into projects that challenge my skills and creativity.
 ## **🚀 What I Do**
 * 💻 Front End Web Development
 * 🤖 AI Enthusiast
@@ -27,4 +27,7 @@ My adeptness covers a spectrum of programming languages, libraries, and framewor
 
 ## **📬 Get in Touch**
 Should you wish to initiate correspondence, reach out to me at [](ahmideveloper@gmail.com)or directly contact me at +92-300-8760724. I eagerly await your response.
-Best Regards, Ahmed Islam
+
+Best Regards, 
+
+Ahmed Islam
