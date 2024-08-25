@@ -12,11 +12,11 @@
 
 <div align="center">
  
- 🔭 I’m currently working on **Content Moderator System**
+ 🔭 I’m currently working on **AI & Ml solution for Climate Change**
  
  🌱 I’m currently learning **Deep Learning, Computer Vision, NLP**
 
-💬 Ask me about **Machine Learning, Data Science, LinkedIn growth, Personal Branding, and much More**
+💬 Ask me about **Machine Learning, Data Science, LinkedIn growth, Personal Branding, and much more**
 
  </div>
  
