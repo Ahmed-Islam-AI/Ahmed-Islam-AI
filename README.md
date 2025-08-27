@@ -12,7 +12,7 @@
 
 <div align="center">
  
- 🔭 I’m currently working on **AI & Ml solution for PPE Detection**
+ 🔭 I’m currently working on **Speech to Speech Real Time Voice Translation Web App by using Google services**
  
  🌱 I’m currently learning **Deep Learning, Computer Vision, NLP**
 
