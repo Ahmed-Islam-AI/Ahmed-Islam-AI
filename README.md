@@ -35,6 +35,19 @@
 
 ---
 
+<h2 align="center">🧠 AI Interests & Specializations 🧠</h2>
+<div align="center">
+  <img src="https://img.shields.io/badge/Generative%20AI-412991?style=for-the-badge&logo=openai&logoColor=white" />
+  <img src="https://img.shields.io/badge/LLMs-FF6F00?style=for-the-badge&logo=googlebard&logoColor=white" />
+  <img src="https://img.shields.io/badge/Agentic%20AI-000000?style=for-the-badge&logo=robotframework&logoColor=white" />
+  <img src="https://img.shields.io/badge/RAG%20Systems-0052CC?style=for-the-badge&logo=confluence&logoColor=white" />
+  <img src="https://img.shields.io/badge/Computer%20Vision-5C5C5C?style=for-the-badge&logo=opencv&logoColor=white" />
+  <img src="https://img.shields.io/badge/NLP-FFD43B?style=for-the-badge&logo=python&logoColor=blue" />
+</div>
+
+<br/>
+
+
 <h2 align="center">⚒️ Tech Stack • Languages • Frameworks ⚒️</h2>
 
 <div align="center">
@@ -59,6 +72,7 @@
   [![GitHub Streak](https://streak-stats.demolab.com/?user=Ahmed-Islam-AI&theme=react&border_radius=10)](https://git.io/streak-stats)
 </div>
 
+
 <br/>
 
 <h2 align="center">🏆 GitHub Trophies 🏆</h2>
@@ -67,10 +81,31 @@
 </div>
 
 <br/>
+
+<h2 align="center">📈 Activity Graph 📈</h2>
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Ahmed-Islam-AI&theme=react-dark&hide_border=true&hide_title=false&area=true" alt="Activity Graph" />
+</div>
+<br/>
+
+<h2 align="center">📊 Profile Summary 📊</h2>
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Ahmed-Islam-AI&theme=radical" alt="Profile Summary" />
+</div>
+
+<br/>
+
 <hr/>
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/Ahmed-Islam-AI/Ahmed-Islam-AI/output/github-contribution-grid-snake.svg" alt="snake game" style="max-width: 100%;">
+</div>
+
+<br/>
+
+<h2 align="center">😂 Random Dev Joke 😂</h2>
+<div align="center">
+  <img src="https://readme-jokes.vercel.app/api?theme=dark" alt="Jokes Card" />
 </div>
 
 
