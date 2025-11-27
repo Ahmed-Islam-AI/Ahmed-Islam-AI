@@ -69,7 +69,7 @@
   &nbsp;&nbsp;
   <img width="325" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Ahmed-Islam-AI&hide=HTML&langs_count=8&layout=compact&theme=react&border_radius=10&size_weight=0.5&count_weight=0.5&exclude_repo=github-readme-stats" alt="Top Languages" />
 
-  [![GitHub Streak](https://streak-stats.demolab.com/?user=Ahmed-Islam-AI&theme=react&border_radius=10)](https://git.io/streak-stats)
+  [![GitHub Streak](https://streak-stats.demolab.com/?user=Ahmed-Islam-AI&theme=dark&hide_border=true&border_radius=10)](https://github.com/DenverCoder1/github-readme-streak-stats)
 </div>
 
 
