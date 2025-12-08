@@ -10,7 +10,7 @@
 
 <div align="center">
 
- 🔭 I’m currently working on **Multimodal RAG System**  
+ 🔭 I’m currently working on **Lead Generation Automation**  
  🌱 I’m currently learning **LangGraph, N8N, Agentic AI**  
  💬 Ask me about **AI, Machine Learning, Data Science, Agentic AI, LinkedIn Growth, Personal Branding, and more!**
 
