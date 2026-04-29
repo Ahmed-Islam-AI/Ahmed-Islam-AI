@@ -36,7 +36,7 @@
 
 <div align="center">
 
- 🔭 I’m currently working on **Object Detection and Tracking by using Computer Vision**  
+ 🔭 I’m currently working on **PadelOs Mcp Server**  
  🌱 I’m currently learning **LangGraph, N8N, Agentic AI**  
  💬 Ask me about **AI, Machine Learning, Data Science, Agentic AI, LinkedIn Growth, Personal Branding, and more!**
 
