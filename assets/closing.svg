@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 360" width="900" height="360" role="img" aria-label="Chat — Q: should we build something together? A: Yes. LLMs that ship, not just demo. Open to agentic AI, MCP tooling and LLM systems. Connect on LinkedIn.">
+<title>Ahmed Islam · let's build</title>
+<defs>
+  <linearGradient id="motto" x1="0" x2="1"><stop offset="0" stop-color="#58A6FF"/><stop offset=".5" stop-color="#BC8CFF"/><stop offset="1" stop-color="#FFD21E"/></linearGradient>
+  <linearGradient id="av" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD21E"/><stop offset="1" stop-color="#FF9D00"/></linearGradient>
+  <filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <!-- the answer "streams" in: each line is revealed by a clip rect; everything shares one 14s cycle -->
+  <clipPath id="l1"><rect x="0" y="146" height="26" width="0"><animate attributeName="width" values="0;0;520;520;0" keyTimes="0;.22;.32;.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+  <clipPath id="l2"><rect x="0" y="176" height="52" width="0"><animate attributeName="width" values="0;0;900;900;0" keyTimes="0;.34;.52;.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+  <clipPath id="l3"><rect x="0" y="228" height="24" width="0"><animate attributeName="width" values="0;0;520;520;0" keyTimes="0;.54;.64;.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+</defs>
+<style>
+  .s { font-family: "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: #e6edf3; }
+  .dim { fill: #7d8590; }
+  .motto { font: 600 32px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: url(#motto); }
+  .dot { transform-box: fill-box; transform-origin: center; animation: hop 1s ease-in-out infinite; }
+  .d2 { animation-delay: .15s; } .d3 { animation-delay: .3s; }
+  @keyframes hop { 30% { transform: translateY(-4px); } 60% { transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+</style>
+
+<rect width="900" height="360" rx="16" fill="#0d1117"/>
+<rect x=".5" y=".5" width="899" height="359" rx="16" fill="none" stroke="#30363d"/>
+
+<!-- model switcher -->
+<rect x="340" y="14" width="220" height="28" rx="14" fill="#161b22" stroke="#30363d"/>
+<circle cx="358" cy="28" r="5" fill="url(#av)"/>
+<text x="370" y="33" class="s" style="font-size:13px">ai-engineer-2026 <tspan class="dim">▾</tspan></text>
+
+<!-- user message -->
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.02;.05;.96;1" dur="14s" repeatCount="indefinite"/>
+  <rect x="580" y="62" width="284" height="40" rx="20" fill="#1f6feb"/>
+  <text x="722" y="87" class="s" text-anchor="middle" style="font-size:14px">should we build something together?</text>
+</g>
+
+<!-- assistant -->
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.06;.08;.96;1" dur="14s" repeatCount="indefinite"/>
+  <circle cx="52" cy="128" r="14" fill="url(#av)"/>
+  <circle cx="47.5" cy="125" r="1.8" fill="#0d1117"/><circle cx="56.5" cy="125" r="1.8" fill="#0d1117"/>
+  <path d="M46 131q6 5 12 0" fill="none" stroke="#0d1117" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="76" y="133" class="s dim" style="font-size:13px">ai-engineer-2026</text>
+</g>
+
+<!-- thinking dots -->
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.08;.09;.2;.21;1" dur="14s" repeatCount="indefinite"/>
+  <circle cx="82" cy="162" r="4" fill="#7d8590" class="dot"/><circle cx="96" cy="162" r="4" fill="#7d8590" class="dot d2"/><circle cx="110" cy="162" r="4" fill="#7d8590" class="dot d3"/>
+</g>
+
+<g clip-path="url(#l1)"><text x="76" y="164" class="s" style="font-size:15px">Yes. Here's how I work, in one line:</text></g>
+<g clip-path="url(#l2)"><text x="76" y="214" class="motto" filter="url(#glow)">“LLMs that ship, not just demo.”</text></g>
+<g clip-path="url(#l3)"><text x="76" y="246" class="s dim" style="font-size:14px">Open to agentic AI · MCP tooling · LLM systems.</text></g>
+
+<!-- action button -->
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.66;.7;.96;1" dur="14s" repeatCount="indefinite"/>
+  <rect x="76" y="262" width="196" height="30" rx="15" fill="#58A6FF" fill-opacity=".12" stroke="#58A6FF" stroke-opacity=".5"/>
+  <text x="174" y="282" class="s" text-anchor="middle" style="font-size:13px;fill:#58A6FF">Connect on LinkedIn ↗</text>
+</g>
+
+<!-- input bar -->
+<rect x="36" y="308" width="828" height="36" rx="18" fill="#161b22" stroke="#30363d"/>
+<text x="58" y="331" class="s dim" style="font-size:14px">Message ai-engineer-2026…</text>
+<circle cx="844" cy="326" r="12" fill="#e6edf3"/>
+<path d="M844 332v-11m-4.5 4.5l4.5-4.5 4.5 4.5" fill="none" stroke="#0d1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
