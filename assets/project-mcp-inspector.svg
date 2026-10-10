@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 230" width="440" height="230" role="img" aria-label="MCP Inspector: Upstream fix · nested &amp; optional array inputs">
+<title>MCP Inspector</title>
+<defs>
+  <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#21262d"/></pattern>
+  <linearGradient id="edge" x1="0" x2="1"><stop offset="0" stop-color="#D2A8FF" stop-opacity="0"/><stop offset=".5" stop-color="#D2A8FF"/><stop offset="1" stop-color="#D2A8FF" stop-opacity="0"/></linearGradient>
+</defs>
+<style>
+  .mono { font: 12px ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; fill: #e6edf3; }
+  .sans { font: 600 20px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: #e6edf3; }
+  .dim { fill: #7d8590; }
+  .flow { stroke-dasharray: 3 3; animation: flow 1s linear infinite; }
+  .blink { animation: blink 2s ease-in-out infinite; }
+  @keyframes flow { to { stroke-dashoffset: -6; } }
+  @keyframes blink { 50% { opacity: .3; } }
+  @media (prefers-reduced-motion: reduce) { .flow, .blink { animation: none; } }
+</style>
+<rect width="440" height="230" rx="12" fill="#0d1117"/>
+<rect width="440" height="230" rx="12" fill="url(#dots)"/>
+<rect x=".5" y=".5" width="439" height="229" rx="12" fill="none" stroke="#30363d"/>
+<path d="M12 0h416a12 12 0 0 1 12 12v22H0V12A12 12 0 0 1 12 0z" fill="#161b22"/>
+<line x1="0" y1="34" x2="440" y2="34" stroke="#30363d"/>
+<line x1="40" y1="34" x2="400" y2="34" stroke="url(#edge)"/>
+<circle cx="20" cy="17" r="5" fill="#ff5f57"/><circle cx="36" cy="17" r="5" fill="#febc2e"/><circle cx="52" cy="17" r="5" fill="#28c840"/>
+<text x="70" y="21" class="mono dim">~/modelcontextprotocol/inspector</text>
+<circle cx="24" cy="64" r="5" fill="#D2A8FF" filter="url(#glow)" class="blink"/>
+<text x="38" y="71" class="sans">MCP Inspector</text>
+<rect x="336.0" y="52" width="84.0" height="22" rx="11" fill="#D2A8FF" fill-opacity=".12" stroke="#D2A8FF" stroke-opacity=".5"/>
+<circle cx="348.0" cy="63" r="3" fill="#D2A8FF" class="blink"/>
+<text x="356.0" y="67" class="mono" style="fill:#D2A8FF">PR #1258</text>
+<text x="24" y="96" class="mono dim">Upstream fix · nested &amp; optional array inputs</text>
+<rect x="29.6" y="124" width="97.8" height="26" rx="6" fill="#161b22" stroke="#D2A8FF"/><text x="78.5" y="141" class="mono" text-anchor="middle">tool schema</text><line x1="129.4" y1="137" x2="147.4" y2="137" stroke="#D2A8FF" class="flow"/><path d="M143.4 133l4 4-4 4" fill="none" stroke="#D2A8FF"/><rect x="149.4" y="124" width="112.2" height="26" rx="6" fill="#161b22" stroke="#30363d"/><text x="205.5" y="141" class="mono" text-anchor="middle">nested arrays</text><line x1="263.6" y1="137" x2="281.6" y2="137" stroke="#D2A8FF" class="flow"/><path d="M277.6 133l4 4-4 4" fill="none" stroke="#D2A8FF"/><rect x="283.6" y="124" width="126.8" height="26" rx="6" fill="#161b22" stroke="#D2A8FF"/><text x="347.0" y="141" class="mono" text-anchor="middle">structured form</text><circle r="3" cx="78.5" opacity="0" cy="137" fill="#D2A8FF" filter="url(#glow)"><animate attributeName="cx" values="78.5;347.0" dur="3s" begin="0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="0.0s" repeatCount="indefinite"/></circle>
+<rect x="24.0" y="184" width="88.5" height="22" rx="11" fill="none" stroke="#30363d"/><text x="68.2" y="199" class="mono dim" text-anchor="middle">TypeScript</text><rect x="120.5" y="184" width="52.2" height="22" rx="11" fill="none" stroke="#30363d"/><text x="146.6" y="199" class="mono dim" text-anchor="middle">React</text><rect x="180.8" y="184" width="37.8" height="22" rx="11" fill="none" stroke="#30363d"/><text x="199.6" y="199" class="mono dim" text-anchor="middle">MCP</text><rect x="226.5" y="184" width="81.2" height="22" rx="11" fill="none" stroke="#30363d"/><text x="267.1" y="199" class="mono dim" text-anchor="middle">+274 −101</text>
+</svg>
