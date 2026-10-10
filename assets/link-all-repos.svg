@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 52" width="210" height="52" role="img" aria-label="all-repos: github.com/Ahmed-Islam-AI">
+<title>all-repos</title>
+<defs>
+  <clipPath id="c"><rect width="210" height="52" rx="10"/></clipPath>
+  <linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#3FB950" stop-opacity="0"/><stop offset=".5" stop-color="#3FB950" stop-opacity=".18"/><stop offset="1" stop-color="#3FB950" stop-opacity="0"/></linearGradient>
+</defs>
+<style>
+  .mono { font: 13px ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; fill: #e6edf3; }
+  .sub { font: 11px ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; fill: #7d8590; }
+  .blink { animation: blink 1.1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .blink { animation: none; } }
+</style>
+<g clip-path="url(#c)">
+  <rect width="210" height="52" fill="#0d1117"/>
+  <rect width="4" height="52" fill="#3FB950"/>
+  <rect x="-80" width="80" height="52" fill="url(#sh)"><animate attributeName="x" values="-80;210;210" keyTimes="0;.4;1" dur="4s" begin="3s" repeatCount="indefinite"/></rect>
+</g>
+<rect x=".5" y=".5" width="209" height="51" rx="10" fill="none" stroke="#30363d"/>
+<text x="18" y="23" class="mono"><tspan style="fill:#3FB950">$</tspan> all-repos<tspan class="blink" style="fill:#3FB950">_</tspan></text>
+<text x="18" y="40" class="sub">github.com/Ahmed-Islam-AI</text>
+<text x="194" y="31" class="mono" text-anchor="end" style="fill:#3FB950">↗</text>
+</svg>
