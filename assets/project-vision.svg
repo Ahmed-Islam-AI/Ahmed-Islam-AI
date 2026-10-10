@@ -2,33 +2,33 @@
 <title>Vision Lab</title>
 <defs>
   <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#2A2725"/></pattern>
-  <linearGradient id="edge" x1="0" x2="1"><stop offset="0" stop-color="#F15629" stop-opacity="0"/><stop offset=".5" stop-color="#F15629"/><stop offset="1" stop-color="#F15629" stop-opacity="0"/></linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#21262d"/></pattern>
+  <linearGradient id="edge" x1="0" x2="1"><stop offset="0" stop-color="#FF7B72" stop-opacity="0"/><stop offset=".5" stop-color="#FF7B72"/><stop offset="1" stop-color="#FF7B72" stop-opacity="0"/></linearGradient>
 </defs>
 <style>
-  .mono { font: 12px ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; fill: #FAF7F4; }
-  .sans { font: 600 20px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: #FAF7F4; }
-  .dim { fill: #948D86; }
+  .mono { font: 12px ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; fill: #e6edf3; }
+  .sans { font: 600 20px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: #e6edf3; }
+  .dim { fill: #7d8590; }
   .flow { stroke-dasharray: 3 3; animation: flow 1s linear infinite; }
   .blink { animation: blink 2s ease-in-out infinite; }
   @keyframes flow { to { stroke-dashoffset: -6; } }
   @keyframes blink { 50% { opacity: .3; } }
   @media (prefers-reduced-motion: reduce) { .flow, .blink { animation: none; } }
 </style>
-<rect width="440" height="230" rx="12" fill="#121212"/>
+<rect width="440" height="230" rx="12" fill="#0d1117"/>
 <rect width="440" height="230" rx="12" fill="url(#dots)"/>
-<rect x=".5" y=".5" width="439" height="229" rx="12" fill="none" stroke="#3A3532"/>
-<path d="M12 0h416a12 12 0 0 1 12 12v22H0V12A12 12 0 0 1 12 0z" fill="#1C1A19"/>
-<line x1="0" y1="34" x2="440" y2="34" stroke="#3A3532"/>
+<rect x=".5" y=".5" width="439" height="229" rx="12" fill="none" stroke="#30363d"/>
+<path d="M12 0h416a12 12 0 0 1 12 12v22H0V12A12 12 0 0 1 12 0z" fill="#161b22"/>
+<line x1="0" y1="34" x2="440" y2="34" stroke="#30363d"/>
 <line x1="40" y1="34" x2="400" y2="34" stroke="url(#edge)"/>
-<circle cx="20" cy="17" r="5" fill="#3A3532"/><circle cx="36" cy="17" r="5" fill="#3A3532"/><circle cx="52" cy="17" r="5" fill="#3A3532"/>
+<circle cx="20" cy="17" r="5" fill="#ff5f57"/><circle cx="36" cy="17" r="5" fill="#febc2e"/><circle cx="52" cy="17" r="5" fill="#28c840"/>
 <text x="70" y="21" class="mono dim">~/cv/ppe + brain-tumor</text>
-<circle cx="24" cy="64" r="5" fill="#F15629" filter="url(#glow)" class="blink"/>
+<circle cx="24" cy="64" r="5" fill="#FF7B72" filter="url(#glow)" class="blink"/>
 <text x="38" y="71" class="sans">Vision Lab</text>
-<rect x="379.5" y="52" width="40.5" height="22" rx="11" fill="#F15629" fill-opacity=".12" stroke="#F15629" stroke-opacity=".5"/>
-<circle cx="391.5" cy="63" r="3" fill="#F15629" class="blink"/>
-<text x="399.5" y="67" class="mono" style="fill:#F15629">CV</text>
+<rect x="379.5" y="52" width="40.5" height="22" rx="11" fill="#FF7B72" fill-opacity=".12" stroke="#FF7B72" stroke-opacity=".5"/>
+<circle cx="391.5" cy="63" r="3" fill="#FF7B72" class="blink"/>
+<text x="399.5" y="67" class="mono" style="fill:#FF7B72">CV</text>
 <text x="24" y="96" class="mono dim">Real-time PPE compliance · MRI tumour segmentation</text>
-<rect x="38.6" y="108" width="61.5" height="26" rx="6" fill="#1C1A19" stroke="#F15629"/><text x="69.4" y="125" class="mono" text-anchor="middle">camera</text><line x1="102.1" y1="121" x2="120.1" y2="121" stroke="#F15629" class="flow"/><path d="M116.1 117l4 4-4 4" fill="none" stroke="#F15629"/><rect x="122.1" y="108" width="61.5" height="26" rx="6" fill="#1C1A19" stroke="#3A3532"/><text x="152.9" y="125" class="mono" text-anchor="middle">YOLOv8</text><line x1="185.6" y1="121" x2="203.6" y2="121" stroke="#F15629" class="flow"/><path d="M199.6 117l4 4-4 4" fill="none" stroke="#F15629"/><rect x="205.6" y="108" width="83.2" height="26" rx="6" fill="#1C1A19" stroke="#3A3532"/><text x="247.2" y="125" class="mono" text-anchor="middle">violation</text><line x1="290.9" y1="121" x2="308.9" y2="121" stroke="#F15629" class="flow"/><path d="M304.9 117l4 4-4 4" fill="none" stroke="#F15629"/><rect x="310.9" y="108" width="90.5" height="26" rx="6" fill="#1C1A19" stroke="#F15629"/><text x="356.1" y="125" class="mono" text-anchor="middle">ROS patrol</text><circle r="3" cx="69.4" opacity="0" cy="121" fill="#F15629" filter="url(#glow)"><animate attributeName="cx" values="69.4;356.1" dur="3s" begin="0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="0.0s" repeatCount="indefinite"/></circle><rect x="84.0" y="144" width="76.0" height="26" rx="6" fill="#1C1A19" stroke="#F15629"/><text x="122.0" y="161" class="mono" text-anchor="middle">MRI scan</text><line x1="162.0" y1="157" x2="180.0" y2="157" stroke="#F15629" class="flow"/><path d="M176.0 153l4 4-4 4" fill="none" stroke="#F15629"/><rect x="182.0" y="144" width="54.2" height="26" rx="6" fill="#1C1A19" stroke="#3A3532"/><text x="209.1" y="161" class="mono" text-anchor="middle">U-Net</text><line x1="238.2" y1="157" x2="256.2" y2="157" stroke="#F15629" class="flow"/><path d="M252.2 153l4 4-4 4" fill="none" stroke="#F15629"/><rect x="258.2" y="144" width="97.8" height="26" rx="6" fill="#1C1A19" stroke="#F15629"/><text x="307.1" y="161" class="mono" text-anchor="middle">tumour mask</text><circle r="3" cx="122.0" opacity="0" cy="157" fill="#F15629" filter="url(#glow)"><animate attributeName="cx" values="122.0;307.1" dur="3s" begin="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
-<rect x="24.0" y="184" width="59.5" height="22" rx="11" fill="none" stroke="#3A3532"/><text x="53.8" y="199" class="mono dim" text-anchor="middle">YOLOv8</text><rect x="91.5" y="184" width="52.2" height="22" rx="11" fill="none" stroke="#3A3532"/><text x="117.6" y="199" class="mono dim" text-anchor="middle">U-Net</text><rect x="151.8" y="184" width="37.8" height="22" rx="11" fill="none" stroke="#3A3532"/><text x="170.6" y="199" class="mono dim" text-anchor="middle">ROS</text><rect x="197.5" y="184" width="59.5" height="22" rx="11" fill="none" stroke="#3A3532"/><text x="227.2" y="199" class="mono dim" text-anchor="middle">OpenCV</text>
+<rect x="38.6" y="108" width="61.5" height="26" rx="6" fill="#161b22" stroke="#FF7B72"/><text x="69.4" y="125" class="mono" text-anchor="middle">camera</text><line x1="102.1" y1="121" x2="120.1" y2="121" stroke="#FF7B72" class="flow"/><path d="M116.1 117l4 4-4 4" fill="none" stroke="#FF7B72"/><rect x="122.1" y="108" width="61.5" height="26" rx="6" fill="#161b22" stroke="#30363d"/><text x="152.9" y="125" class="mono" text-anchor="middle">YOLOv8</text><line x1="185.6" y1="121" x2="203.6" y2="121" stroke="#FF7B72" class="flow"/><path d="M199.6 117l4 4-4 4" fill="none" stroke="#FF7B72"/><rect x="205.6" y="108" width="83.2" height="26" rx="6" fill="#161b22" stroke="#30363d"/><text x="247.2" y="125" class="mono" text-anchor="middle">violation</text><line x1="290.9" y1="121" x2="308.9" y2="121" stroke="#FF7B72" class="flow"/><path d="M304.9 117l4 4-4 4" fill="none" stroke="#FF7B72"/><rect x="310.9" y="108" width="90.5" height="26" rx="6" fill="#161b22" stroke="#FF7B72"/><text x="356.1" y="125" class="mono" text-anchor="middle">ROS patrol</text><circle r="3" cx="69.4" opacity="0" cy="121" fill="#FF7B72" filter="url(#glow)"><animate attributeName="cx" values="69.4;356.1" dur="3s" begin="0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="0.0s" repeatCount="indefinite"/></circle><rect x="84.0" y="144" width="76.0" height="26" rx="6" fill="#161b22" stroke="#FF7B72"/><text x="122.0" y="161" class="mono" text-anchor="middle">MRI scan</text><line x1="162.0" y1="157" x2="180.0" y2="157" stroke="#FF7B72" class="flow"/><path d="M176.0 153l4 4-4 4" fill="none" stroke="#FF7B72"/><rect x="182.0" y="144" width="54.2" height="26" rx="6" fill="#161b22" stroke="#30363d"/><text x="209.1" y="161" class="mono" text-anchor="middle">U-Net</text><line x1="238.2" y1="157" x2="256.2" y2="157" stroke="#FF7B72" class="flow"/><path d="M252.2 153l4 4-4 4" fill="none" stroke="#FF7B72"/><rect x="258.2" y="144" width="97.8" height="26" rx="6" fill="#161b22" stroke="#FF7B72"/><text x="307.1" y="161" class="mono" text-anchor="middle">tumour mask</text><circle r="3" cx="122.0" opacity="0" cy="157" fill="#FF7B72" filter="url(#glow)"><animate attributeName="cx" values="122.0;307.1" dur="3s" begin="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+<rect x="24.0" y="184" width="59.5" height="22" rx="11" fill="none" stroke="#30363d"/><text x="53.8" y="199" class="mono dim" text-anchor="middle">YOLOv8</text><rect x="91.5" y="184" width="52.2" height="22" rx="11" fill="none" stroke="#30363d"/><text x="117.6" y="199" class="mono dim" text-anchor="middle">U-Net</text><rect x="151.8" y="184" width="37.8" height="22" rx="11" fill="none" stroke="#30363d"/><text x="170.6" y="199" class="mono dim" text-anchor="middle">ROS</text><rect x="197.5" y="184" width="59.5" height="22" rx="11" fill="none" stroke="#30363d"/><text x="227.2" y="199" class="mono dim" text-anchor="middle">OpenCV</text>
 </svg>
