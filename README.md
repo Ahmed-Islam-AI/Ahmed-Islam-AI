@@ -117,7 +117,7 @@ gitGraph
 
 <div align="center">
   <img height="165" src="https://github-readme-stats.vercel.app/api?username=Ahmed-Islam-AI&show_icons=true&theme=github_dark&hide_border=true&border_radius=8&rank_icon=github&bg_color=0d1117&icon_color=58a6ff&title_color=58a6ff" alt="GitHub stats" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ahmed-Islam-AI&layout=compact&langs_count=8&hide=HTML,Jupyter%20Notebook&theme=github_dark&hide_border=true&border_radius=8&bg_color=0d1117&title_color=58a6ff" alt="Top languages" />
+  <img height="165" src="https://streak-stats.demolab.com/?user=Ahmed-Islam-AI&theme=github-dark-blue&hide_border=true&border_radius=8&background=0d1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" alt="Contribution streak" />
 </div>
 
 <br/>
