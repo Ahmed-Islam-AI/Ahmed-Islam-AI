@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 460" width="900" height="460" role="img" aria-label="Model card: ahmed-islam/ai-engineer-2026 — agentic AI, LLM systems, MCP, computer vision. Fine-tuned at PadelOS.">
+<title>ahmed-islam/ai-engineer-2026 · model card</title>
+<defs>
+  <linearGradient id="strip" x1="0" x2="1"><stop offset="0" stop-color="#FFD21E"/><stop offset=".5" stop-color="#FF9D00"/><stop offset="1" stop-color="#58A6FF"/></linearGradient>
+  <linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="#FF9D00"/><stop offset="1" stop-color="#FFD21E"/></linearGradient>
+  <clipPath id="card"><rect width="900" height="460" rx="16"/></clipPath>
+</defs>
+<style>
+  .s { font-family: "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: #e6edf3; }
+  .m { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; fill: #e6edf3; white-space: pre; }
+  .k { fill: #7d8590; font-size: 13px; }
+  .v { font-size: 13px; }
+  .h { font-size: 15px; font-weight: 600; }
+  .tag { font-size: 12px; }
+  .kw { fill: #FF7B72; } .st { fill: #A5D6FF; } .fn { fill: #D2A8FF; } .cm { fill: #8B949E; }
+  .beat { transform-box: fill-box; transform-origin: center; animation: beat 1.6s ease-in-out infinite; }
+  @keyframes beat { 15% { transform: scale(1.25); } 30% { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { .beat { animation: none; } }
+</style>
+
+<g clip-path="url(#card)">
+  <rect width="900" height="460" fill="#0d1117"/>
+  <rect width="900" height="4" fill="url(#strip)"/>
+</g>
+<rect x=".5" y=".5" width="899" height="459" rx="16" fill="none" stroke="#30363d"/>
+
+<!-- repo header, Hugging Face style -->
+<rect x="36" y="30" width="34" height="34" rx="9" fill="#FFD21E"/>
+<circle cx="47" cy="44" r="2.6" fill="#0d1117"/><circle cx="59" cy="44" r="2.6" fill="#0d1117"/>
+<path d="M45 51q8 7 16 0" fill="none" stroke="#0d1117" stroke-width="2.4" stroke-linecap="round"/>
+<text x="84" y="55" class="s" style="font-size:22px"><tspan fill="#7d8590" style="fill:#7d8590">ahmed-islam/</tspan><tspan font-weight="700">ai-engineer-2026</tspan></text>
+
+<rect x="704" y="32" width="160" height="30" rx="15" fill="#161b22" stroke="#30363d"/>
+<path class="beat" d="M727 44.5a4 4 0 0 1 7-2.6a4 4 0 0 1 7 2.6c0 4-7 8-7 8s-7-4-7-8z" fill="#FF7B72"/>
+<text x="750" y="52" class="s" style="font-size:13px">open to collab</text>
+
+<!-- tags -->
+<rect x="36" y="80" width="98" height="24" rx="6" fill="#58A6FF" fill-opacity=".12" stroke="#58A6FF" stroke-opacity=".4"/><text x="85" y="96" class="m tag" text-anchor="middle" style="fill:#58A6FF">agentic-ai</text>
+<rect x="142" y="80" width="106" height="24" rx="6" fill="#BC8CFF" fill-opacity=".12" stroke="#BC8CFF" stroke-opacity=".4"/><text x="195" y="96" class="m tag" text-anchor="middle" style="fill:#BC8CFF">llm-systems</text>
+<rect x="256" y="80" width="48" height="24" rx="6" fill="#3FB950" fill-opacity=".12" stroke="#3FB950" stroke-opacity=".4"/><text x="280" y="96" class="m tag" text-anchor="middle" style="fill:#3FB950">mcp</text>
+<rect x="312" y="80" width="130" height="24" rx="6" fill="#FF7B72" fill-opacity=".12" stroke="#FF7B72" stroke-opacity=".4"/><text x="377" y="96" class="m tag" text-anchor="middle" style="fill:#FF7B72">computer-vision</text>
+<rect x="450" y="80" width="194" height="24" rx="6" fill="#FFD21E" fill-opacity=".12" stroke="#FFD21E" stroke-opacity=".4"/><text x="547" y="96" class="m tag" text-anchor="middle" style="fill:#FFD21E">license: open-to-collab</text>
+
+<line x1="36" y1="124" x2="864" y2="124" stroke="#30363d"/>
+
+<!-- model details -->
+<text x="36" y="154" class="s h">Model details</text>
+<text x="36" y="184" class="s k">Developed by</text><text x="170" y="184" class="s v">Ahmed Islam · Islamabad, PK</text>
+<text x="36" y="208" class="s k">Fine-tuned at</text><text x="170" y="208" class="s v">PadelOS — AI Engineer</text>
+<text x="36" y="232" class="s k">Training data</text><text x="170" y="232" class="s v">4 internships · Buildables Fellowship · 30+ repos</text>
+<text x="36" y="256" class="s k">Pre-training</text><text x="170" y="256" class="s v">IBM ML certificate · #100DaysOfBytewise</text>
+<text x="36" y="280" class="s k">Context window</text><text x="170" y="280" class="s v">2023 → now</text>
+<text x="36" y="304" class="s k">Intended use</text><text x="170" y="304" class="s v" style="fill:#3FB950">shipping LLM agents to production</text>
+<text x="36" y="328" class="s k">Out of scope</text><text x="170" y="328" class="s v" style="fill:#FF7B72">demos that never ship</text>
+
+<!-- evals -->
+<line x1="500" y1="140" x2="500" y2="356" stroke="#21262d"/>
+<text x="528" y="154" class="s h">Eval results <tspan class="k" style="font-weight:400">(self-reported)</tspan></text>
+<g class="s v">
+  <text x="528" y="186">Agents · LangGraph</text>
+  <rect x="528" y="194" width="290" height="6" rx="3" fill="#21262d"/>
+  <rect x="528" y="194" width="0" height="6" rx="3" fill="url(#bar)"><animate attributeName="width" from="0" to="267" dur="1.4s" begin=".2s" fill="freeze"/></rect>
+  <text x="864" y="201" text-anchor="end" class="m v">92.0</text>
+
+  <text x="528" y="224">MCP tooling</text>
+  <rect x="528" y="232" width="290" height="6" rx="3" fill="#21262d"/>
+  <rect x="528" y="232" width="0" height="6" rx="3" fill="url(#bar)"><animate attributeName="width" from="0" to="255" dur="1.4s" begin=".4s" fill="freeze"/></rect>
+  <text x="864" y="239" text-anchor="end" class="m v">88.0</text>
+
+  <text x="528" y="262">LLM apps · RAG · evals</text>
+  <rect x="528" y="270" width="290" height="6" rx="3" fill="#21262d"/>
+  <rect x="528" y="270" width="0" height="6" rx="3" fill="url(#bar)"><animate attributeName="width" from="0" to="261" dur="1.4s" begin=".6s" fill="freeze"/></rect>
+  <text x="864" y="277" text-anchor="end" class="m v">90.0</text>
+
+  <text x="528" y="300">Computer vision</text>
+  <rect x="528" y="308" width="290" height="6" rx="3" fill="#21262d"/>
+  <rect x="528" y="308" width="0" height="6" rx="3" fill="url(#bar)"><animate attributeName="width" from="0" to="246" dur="1.4s" begin=".8s" fill="freeze"/></rect>
+  <text x="864" y="315" text-anchor="end" class="m v">85.0</text>
+
+  <text x="528" y="338" style="fill:#FFD21E">Shipping to prod ★</text>
+  <rect x="528" y="346" width="290" height="6" rx="3" fill="#21262d"/>
+  <rect x="528" y="346" width="0" height="6" rx="3" fill="url(#bar)"><animate attributeName="width" from="0" to="281" dur="1.4s" begin="1s" fill="freeze"/></rect>
+  <text x="864" y="353" text-anchor="end" class="m v" style="fill:#FFD21E">97.0</text>
+</g>
+
+<!-- use this model -->
+<rect x="36" y="370" width="828" height="70" rx="10" fill="#161b22" stroke="#30363d"/>
+<text x="852" y="388" class="s k" text-anchor="end" style="font-size:11px">Use this model</text>
+<text x="54" y="394" class="m v"><tspan class="kw">from</tspan> transformers <tspan class="kw">import</tspan> pipeline</text>
+<text x="54" y="413" class="m v">ahmed = <tspan class="fn">pipeline</tspan>(<tspan class="st">"agentic-ai"</tspan>, model=<tspan class="st">"ahmed-islam/ai-engineer-2026"</tspan>)</text>
+<text x="54" y="432" class="m v"><tspan class="fn">ahmed</tspan>(<tspan class="st">"ship an MCP server for my product"</tspan>)  <tspan class="cm"># → ✓ deployed</tspan></text>
+</svg>
