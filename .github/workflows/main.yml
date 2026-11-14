@@ -26,7 +26,14 @@ jobs:
     steps:
       - name: Clone repo
         uses: actions/checkout@v3
-    
+
+      # Fails the job (nothing gets pushed) rather than publishing a broken card.
+      # STATS_TOKEN = PAT that can read private repos; falls back to public-only data.
+      - name: Generate the stats card in './dist/'
+        run: python3 scripts/github_stats.py dist/github-stats.svg
+        env:
+          GH_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+
       - name: Generate the snake files in './dist/'
         uses: Platane/snk@v3
         id: snake-gif
