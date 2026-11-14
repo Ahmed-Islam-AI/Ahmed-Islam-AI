@@ -116,8 +116,7 @@ gitGraph
 ## 📡 GitHub Telemetry
 
 <div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Ahmed-Islam-AI&show_icons=true&theme=github_dark&hide_border=true&border_radius=8&rank_icon=github&bg_color=121212&icon_color=F15629&title_color=F15629&text_color=FAF7F4&ring_color=F15629" alt="GitHub stats" />
-  <img height="165" src="https://streak-stats.demolab.com/?user=Ahmed-Islam-AI&theme=github-dark-blue&hide_border=true&border_radius=8&background=121212&ring=F15629&fire=F15629&currStreakLabel=F15629&currStreakNum=FAF7F4&sideNums=FAF7F4&sideLabels=FAF7F4&dates=948D86&stroke=3A3532" alt="Contribution streak" />
+  <img src="https://raw.githubusercontent.com/Ahmed-Islam-AI/Ahmed-Islam-AI/output/github-stats.svg" width="100%" alt="GitHub telemetry — all-time contributions, current and longest streak, commits by hour, monthly growth, weekly rhythm and languages by commit. Refreshed every 12 hours." />
 </div>
 
 <br/>
