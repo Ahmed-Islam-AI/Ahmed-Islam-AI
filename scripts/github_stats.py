@@ -111,6 +111,21 @@ def pt(cx, cy, r, frac):  # frac of a full turn, clockwise from 12 o'clock
 
 
 _ids = itertools.count()
+LOOP = 12  # seconds; the intro replays so the card is moving whenever someone scrolls to it
+_frames = []
+
+
+def loop(frm, to, delay, dur, ease="cubic-bezier(.2,.8,.2,1)"):
+    """Inline style: hold `frm`, ease to `to` at `delay`, hold, rewind in the last .8s, repeat every LOOP s.
+    `to` is also the static style, so renderers without CSS animation show the finished card."""
+    name = f"k{len(_frames)}"
+    a, b, c = (100 * t / LOOP for t in (delay, delay + dur, LOOP - .8))
+    _frames.append(f"@keyframes {name}{{0%,{a:.2f}%{{{frm};animation-timing-function:{ease}}}"
+                   f"{b:.2f}%,{c:.2f}%{{{to};animation-timing-function:cubic-bezier(.5,0,.75,0)}}100%{{{frm}}}}}")
+    return f"{to};animation:{name} {LOOP}s infinite"
+
+
+FADE = ("opacity:0", "opacity:1")
 
 
 def roll(x, y, value, size, delay, anchor="start"):
@@ -129,8 +144,8 @@ def roll(x, y, value, size, delay, anchor="start"):
         else:
             d = int(ch)
             col = "".join(f'<text x="{mid:.1f}" y="{y + k * lh:.1f}">{k % 10}</text>' for k in range(11 + d))
-            out.append(f'<g style="transform:translateY(-{(10 + d) * lh:.1f}px);'
-                       f'animation:roll 1.7s cubic-bezier(.2,.8,.2,1) {delay + i * .07:.2f}s backwards">{col}</g>')
+            style = loop("transform:translateY(0)", f"transform:translateY(-{(10 + d) * lh:.1f}px)", delay + i * .07, 1.7)
+            out.append(f'<g style="{style}">{col}</g>')
         cx += w
     out.append("</g>")
     return "".join(out), total
@@ -174,10 +189,12 @@ def render(name, created, days, langs, hours, n_repos, today):
     o.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#FFFFFF" stroke-opacity=".08" stroke-width="10"/>'
              f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="url(#ring)" stroke-width="10" stroke-linecap="round" '
              f'pathLength="100" stroke-dasharray="100" transform="rotate(-90 {cx} {cy})" filter="url(#glow)" '
-             f'style="stroke-dashoffset:{100 * (1 - ratio):.2f};animation:ring 1.8s cubic-bezier(.2,.8,.2,1) .4s backwards"/>')
-    if ratio:
+             f'style="{loop("stroke-dashoffset:100", f"stroke-dashoffset:{100 * (1 - ratio):.2f}", .4, 1.8)}"/>')
+    if 0 < ratio < 1:
         ex, ey = pt(cx, cy, r, ratio)
-        o.append(f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="4.5" fill="{INK}" class="pulse" style="animation-delay:2.2s"/>')
+        o.append(f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="4.5" fill="{INK}" style="{loop(*FADE, 2.2, .4)}"/>')
+    o.append(f'<circle r="3.5" fill="#FFFFFF" filter="url(#glow)" class="amb" style="{loop(*FADE, 2.2, .5)}">'
+             f'<animateMotion dur="5s" repeatCount="indefinite" path="M{cx},{cy - r}a{r},{r} 0 1,1 -.01,0"/></circle>')
     o.append(roll(cx, 212, cur, 44, .4, "middle")[0])
     o.append(f'<text x="{cx}" y="238" text-anchor="middle" font-size="13" font-weight="600" fill="{MUTED}">days</text>')
     if cur:
@@ -206,6 +223,11 @@ def render(name, created, days, langs, hours, n_repos, today):
     in_peak = {(peak + i) % 24 for i in range(3)}
     o.append(f'<circle cx="{cx}" cy="{cy}" r="{r0}" fill="none" stroke="#FFFFFF" stroke-opacity=".1"/>'
              f'<text x="{cx}" y="{cy + 4}" text-anchor="middle" class="mono" font-size="12" fill="{MUTED}">24h</text>')
+    (ix, iy), (ox, oy), (hx, hy), (jx, jy) = (pt(cx, cy, rr, f) for rr, f in ((r0 + 2, -1 / 12), (r1 + 2, -1 / 12), (r1 + 2, 0), (r0 + 2, 0)))
+    o.append(f'<g class="spin" style="transform-origin:{cx}px {cy}px">'  # radar sweep
+             f'<path d="M{ix:.1f} {iy:.1f}L{ox:.1f} {oy:.1f}A{r1 + 2} {r1 + 2} 0 0 1 {hx:.1f} {hy:.1f}L{jx:.1f} {jy:.1f}'
+             f'A{r0 + 2} {r0 + 2} 0 0 0 {ix:.1f} {iy:.1f}Z" fill="url(#sweep)"/>'
+             f'<line x1="{jx:.1f}" y1="{jy:.1f}" x2="{hx:.1f}" y2="{hy:.1f}" stroke="{ACCENT_HI}" stroke-opacity=".7" stroke-width="1.5" stroke-linecap="round"/></g>')
     for h in range(24):
         f = (h + .5) / 24
         (x1, y1), (x2, y2) = pt(cx, cy, r0 + 6, f), pt(cx, cy, r1, f)
@@ -214,10 +236,10 @@ def render(name, created, days, langs, hours, n_repos, today):
             xe, ye = pt(cx, cy, r0 + 6 + (r1 - r0 - 6) * hours[h] / hmax, f)
             paint = f'stroke="url(#hot)"' if h in in_peak else f'stroke="{ACCENT}" stroke-opacity=".45"'
             o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{xe:.1f}" y2="{ye:.1f}" {paint} stroke-width="7" stroke-linecap="round" '
-                     f'pathLength="1" stroke-dasharray="1" style="animation:draw .7s cubic-bezier(.2,.8,.2,1) {.8 + h * .03:.2f}s backwards"/>')
+                     f'pathLength="1" stroke-dasharray="1" style="{loop("stroke-dashoffset:1", "stroke-dashoffset:0", .8 + h * .03, .7)}"/>')
     (ax, ay), (bx, by) = pt(cx, cy, r1 + 9, peak / 24), pt(cx, cy, r1 + 9, (peak + 3) / 24)
     o.append(f'<path d="M{ax:.1f} {ay:.1f}A{r1 + 9} {r1 + 9} 0 0 1 {bx:.1f} {by:.1f}" fill="none" stroke="{ACCENT_HI}" stroke-width="2" '
-             f'stroke-linecap="round" style="animation:fade .6s ease 1.8s backwards"/>')
+             f'stroke-linecap="round" style="{loop(*FADE, 1.8, .6)}"/>')
     for lbl, f, dy in (("00", 0, 4), ("06", .25, 4), ("12", .5, 8), ("18", .75, 4)):
         lx, ly = pt(cx, cy, r1 + 22, f)
         o.append(f'<text x="{lx:.1f}" y="{ly + dy - (4 if f == 0 else 0):.1f}" text-anchor="middle" class="mono" font-size="13" fill="{MUTED}">{lbl}</text>')
@@ -254,9 +276,11 @@ def render(name, created, days, langs, hours, n_repos, today):
     step = (x1 - x0) / max(1, len(vals) - 1)
     pts = [(x0 + i * step, y1 - v / top * (y1 - y0)) for i, v in enumerate(vals)]
     line = " ".join(f"{px:.1f},{py:.1f}" for px, py in pts)
-    o.append(f'<path d="M{x0},{y1} L{line} L{pts[-1][0]:.1f},{y1}Z" fill="url(#area)" style="animation:fade 1s ease 1.6s backwards"/>'
+    o.append(f'<path d="M{x0},{y1} L{line} L{pts[-1][0]:.1f},{y1}Z" fill="url(#area)" style="{loop(*FADE, 1.6, 1)}"/>'
              f'<polyline points="{line}" fill="none" stroke="{ACCENT}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" '
-             f'pathLength="1" stroke-dasharray="1" style="animation:draw 1.8s cubic-bezier(.4,0,.2,1) .5s backwards"/>')
+             f'pathLength="1" stroke-dasharray="1" style="{loop("stroke-dashoffset:1", "stroke-dashoffset:0", .5, 1.8, "cubic-bezier(.4,0,.2,1)")}"/>'
+             f'<circle r="3.5" fill="#FFD9C7" filter="url(#glow)" class="amb" style="{loop(*FADE, 2.3, .5)}">'  # comet riding the line
+             f'<animateMotion dur="6s" repeatCount="indefinite" path="M{line.replace(" ", " L")}"/></circle>')
     for i, (y, m) in enumerate(ym):
         if i == 0 or (m == 1 and i * step > 40):
             o.append(f'<text x="{x0 + i * step:.1f}" y="540" text-anchor="{"start" if i == 0 else "middle"}" class="mono" font-size="13" '
@@ -264,12 +288,12 @@ def render(name, created, days, langs, hours, n_repos, today):
     pi = max(range(len(vals)), key=vals.__getitem__)
     (px, py), (lx, ly) = pts[pi], pts[-1]
     pm = ym[pi]
-    o.append(f'<g style="animation:fade .6s ease 2.2s backwards">'
+    o.append(f'<g style="{loop(*FADE, 2.2, .6)}">'
              f'<circle cx="{px:.1f}" cy="{py:.1f}" r="5" fill="{ACCENT_HI}" stroke="#1A1A1A" stroke-width="2"/>'
              f'<text x="{min(max(px, x0 + 60), x1 - 60):.1f}" y="{py - 14:.1f}" text-anchor="middle" font-size="14" font-weight="600" fill="{INK}">'
              f'{calendar.month_abbr[pm[1]]} ’{pm[0] % 100:02d} · {vals[pi]:,}</text></g>')
     if pi != len(vals) - 1:
-        o.append(f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="4" fill="{ACCENT}" stroke="#1A1A1A" stroke-width="2" style="animation:fade .6s ease 2.2s backwards"/>')
+        o.append(f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="4" fill="{ACCENT}" stroke="#1A1A1A" stroke-width="2" style="{loop(*FADE, 2.2, .6)}"/>')
 
     # ── row 3a: weekly rhythm ──
     week = [0] * 7
@@ -284,12 +308,15 @@ def render(name, created, days, langs, hours, n_repos, today):
     for i, v in enumerate(week):
         bx, bh = 68 + i * 72 + 16, max(3, 84 * v / wmax)
         paint = 'fill="url(#hotV)"' if i == busiest else f'fill="{ACCENT}" fill-opacity=".4"'
+        if i == busiest:  # breathing glow behind the busiest day
+            o.append(f'<g style="{loop(*FADE, 1.8, .5)}"><rect x="{bx}" y="{755 - bh:.1f}" width="40" height="{bh:.1f}" rx="4" '
+                     f'fill="{ACCENT}" filter="url(#glow)" class="pulse"/></g>')
         o.append(f'<rect class="grow" x="{bx}" y="{755 - bh:.1f}" width="40" height="{bh:.1f}" rx="4" {paint} '
-                 f'style="animation:grow .8s cubic-bezier(.2,.8,.2,1) {1 + i * .06:.2f}s backwards"/>'
+                 f'style="{loop("transform:scaleY(0)", "transform:scaleY(1)", 1 + i * .06, .8)}"/>'
                  f'<text x="{bx + 20}" y="778" text-anchor="middle" class="mono" font-size="13" fill="{INK if i == busiest else MUTED}">{calendar.day_abbr[i]}</text>')
         if i == busiest:
             o.append(f'<text x="{bx + 20}" y="{755 - bh - 9:.1f}" text-anchor="middle" font-size="14" font-weight="600" fill="{INK}" '
-                     f'style="animation:fade .5s ease 1.6s backwards">{v:,}</text>')
+                     f'style="{loop(*FADE, 1.6, .5)}">{v:,}</text>')
 
     # ── row 3b: languages by commit ──
     commits = sum(langs.values())
@@ -307,10 +334,10 @@ def render(name, created, days, langs, hours, n_repos, today):
                  f'<text x="900" y="{ry}" text-anchor="end" font-size="16" font-weight="600" fill="{MUTED}">{round(share)}%</text>'
                  f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{color}" stroke-width="18" pathLength="100" '
                  f'stroke-dashoffset="{-(acc + gap / 2):.2f}" transform="rotate(-90 {cx} {cy})" '
-                 f'style="stroke-dasharray:{max(0, share - gap):.2f} 100;animation:seg .6s ease-out {1.2 + i * .25:.2f}s backwards"/>')
+                 f'style="{loop("stroke-dasharray:0 100", f"stroke-dasharray:{max(0, share - gap):.2f} 100", 1.2 + i * .25, .6, "ease-out")}"/>')
         acc += share
     if rows:
-        o.append(f'<g style="animation:fade .6s ease 2.2s backwards">'
+        o.append(f'<g style="{loop(*FADE, 2.2, .6)}">'
                  f'<text x="{cx}" y="{cy + 4}" text-anchor="middle" font-size="26" font-weight="800" class="numfill">{round(100 * rows[0][1] / commits)}%</text>'
                  f'<text x="{cx}" y="{cy + 24}" text-anchor="middle" font-size="12" fill="{MUTED}">{html.escape(rows[0][0])}</text></g>')
 
@@ -318,7 +345,7 @@ def render(name, created, days, langs, hours, n_repos, today):
             f"Peak commit hours {peak:02d}:00 to {(peak + 3) % 24:02d}:00 PKT ({persona}). "
             f"{this_year:,} contributions in {today.year}. Busiest day {calendar.day_name[busiest]}. "
             f"Top languages by commit: {', '.join(f'{l} {round(100 * n / commits)}%' for l, n, _ in rows)}.")
-    return SVG.format(name=html.escape(name), desc=html.escape(desc), sans=SANS, mono=MONO, body="\n".join(o))
+    return SVG.format(name=html.escape(name), desc=html.escape(desc), sans=SANS, mono=MONO, frames="\n".join(_frames), body="\n".join(o))
 
 
 SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" role="img" aria-labelledby="t d">
@@ -331,14 +358,11 @@ text{{font-family:{sans};font-variant-numeric:tabular-nums}}
 .numfill{{fill:url(#numfill)}}
 .grow{{transform-box:fill-box;transform-origin:50% 100%}}
 .pulse{{animation:pulse 2.4s ease-in-out infinite}}
-@keyframes roll{{from{{transform:translateY(0)}}}}
-@keyframes ring{{from{{stroke-dashoffset:100}}}}
-@keyframes draw{{from{{stroke-dashoffset:1}}}}
-@keyframes grow{{from{{transform:scaleY(0)}}}}
-@keyframes seg{{from{{stroke-dasharray:0 100}}}}
-@keyframes fade{{from{{opacity:0}}}}
+.spin{{animation:spin 7s linear infinite}}
 @keyframes pulse{{50%{{opacity:.25}}}}
-@media (prefers-reduced-motion:reduce){{*{{animation:none!important}}}}
+@keyframes spin{{to{{transform:rotate(360deg)}}}}
+{frames}
+@media (prefers-reduced-motion:reduce){{*{{animation:none!important}}.amb{{display:none}}}}
 </style>
 <defs>
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B0B0B"/><stop offset="1" stop-color="#141210"/></linearGradient>
@@ -350,6 +374,7 @@ text{{font-family:{sans};font-variant-numeric:tabular-nums}}
 <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F15629" stop-opacity=".75"/><stop offset=".5" stop-color="#F15629" stop-opacity=".15"/><stop offset="1" stop-color="#FF8A5C" stop-opacity=".6"/></linearGradient>
 <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F15629" stop-opacity=".35"/><stop offset="1" stop-color="#F15629" stop-opacity="0"/></linearGradient>
 <linearGradient id="hot" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="830"><stop offset="0" stop-color="#FF8A5C"/><stop offset="1" stop-color="#F15629"/></linearGradient>
+<linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F15629" stop-opacity="0"/><stop offset="1" stop-color="#F15629" stop-opacity=".3"/></linearGradient>
 <linearGradient id="hotV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8A5C"/><stop offset="1" stop-color="#F15629"/></linearGradient>
 <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <clipPath id="frame"><rect width="1200" height="830" rx="28"/></clipPath>
